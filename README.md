@@ -1,5 +1,5 @@
 # change-file-structure
-Naive script to convert a file-type-oriented file structure into a directory-date-oriented structure
+Naive script to restructure a directory tree by converting parent-child relationships.
 
 
 Run it like so (Python 3.6):
@@ -9,67 +9,67 @@ $ python src/change_file_structure <SOURCE_DIR> <DESTINATION_DIR>
 
 ### What is does:
 
-Naive implementation to convert a file-type-oriented file structure such as:
+Suppose you have a directory tree with _foo_, _bar_, and _baz_ as parent directories of _spam_ and _ham_, such as the following pattern: 
 
 ```bash
 dir__
-     |_raw__day1__file1
-     |    |     |_file2
+     |_foo__spam__leaf1
+     |    |     |_leaf2
      |    |        :
      |    |
-     |    |_day2__file3
-     |          |_file4
-     |          |_file5
+     |    |_ham___leaf3
+     |          |_leaf4
+     |          |_leaf5
      |             :
      |      
-     |_tif__day1 _file6
-     |    |     |_file7
+     |_bar__spam _leaf6
+     |    |     |_leaf7
      |    |        :
      |    |
-     |    |_day2__file8
-     |          |_file9
-     |          |_file10
+     |    |_ham___leaf8
+     |          |_leaf9
+     |          |_leaf10
      |             :
      |       
-     |_dev__day1__file11
-     |    |     |_file12
+     |_baz__spam__leaf11
+     |    |     |_leaf12
      |    |        :
      |    |
-     |    |_day2__file13
-     |          |_file14
-     |          |_file15
+     |    |_ham___leaf13
+     |          |_leaf14
+     |          |_leaf15
      |             :
      :
 ```
 
-into a date-oriented file structure:
+`change-file-structure` would convert it such that _spam_ and _ham_ are now the parent directories of _foo_, _bar_, and _baz_. The above example would be converted into the following tree structure:
 
 ```bash
-dir__day1__raw__file1
-     |  |     |_file2
+dir__spam__foo__leaf1
+     |  |     |_leaf2
      |  |         :
      |  |
-     |  |__tif__file6
-     |  |     |_file7
+     |  |__bar__leaf6
+     |  |     |_leaf7
      |  |         :
      |  |
-     |  |__def__file11
-     |        |_file12
+     |  |__baz__leaf11
+     |        |_leaf12
      |           :
      |
-     day2__raw__file3
-     |  |     |_file4
-     |  |     |_file5
+     ham___foo__leaf3
+     |  |     |_leaf4
+     |  |     |_leaf5
      |  |         :
      |  |
-     |  |__tif__file8
-     |  |     |_file9
-     |  |     |_file10
+     |  |__bar__leaf8
+     |  |     |_leaf9
+     |  |     |_leaf10
      |  |         :
      |  |
-     |  |__def__file13
-     |        |_file14
-     |        |_file15
+     |  |__baz__leaf13
+     |        |_leaf14
+     |        |_leaf15
      |           :
      :
  ```
