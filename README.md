@@ -13,34 +13,33 @@ Suppose you have a directory tree with _foo_, _bar_, and _baz_ as parent directo
 
 ```bash
 SOURCE__
-		|_foo__spam__leaf1
-		|    |     |_leaf2
-		|    |        :
-		|    |
-		|    |_ham___leaf3
-		|          |_leaf4
-		|          |_leaf5
-		|             :
-		|      
-		|_bar__spam _leaf6
-		|    |     |_leaf7
-		|    |        :
-		|    |
-		|    |_ham___leaf8
-		|          |_leaf9
-		|          |_leaf10
-		|             :
-		|       
-		|_baz__spam__leaf11
-		|    |     |_leaf12
-		|    |        :
-		|    |
-		|    |_ham___leaf13
-		|          |_leaf14
-		|          |_leaf15
-		|             :
-		:
-
+        |_foo__spam__leaf1
+        |    |     |_leaf2
+        |    |        :
+        |    |
+        |    |_ham___leaf3
+        |          |_leaf4
+        |          |_leaf5
+        |             :
+        |      
+        |_bar__spam _leaf6
+        |    |     |_leaf7
+        |    |        :
+        |    |
+        |    |_ham___leaf8
+        |          |_leaf9
+        |          |_leaf10
+        |             :
+        |       
+        |_baz__spam__leaf11
+        |    |     |_leaf12
+        |    |        :
+        |    |
+        |    |_ham___leaf13
+        |          |_leaf14
+        |          |_leaf15
+        |             :
+        :
 ```
 
 `change-file-structure` would convert it such that _spam_ and _ham_ are now the parent directories of _foo_, _bar_, and _baz_. The above example would be converted into the following tree structure:

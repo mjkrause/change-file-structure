@@ -87,8 +87,9 @@ def change_file_structure():
 
     source = sys.argv[1]
     dest = sys.argv[2]
+    image_types = (sys.argv[3], sys.argv[4], sys.argv[5])
 
-    image_types = ('raw', 'tiff', 'developed')
+    # image_types = ('raw', 'tiff', 'developed')
     date_dirs = get_date_folders(source, image_types)
     create_dest_dirs(dest, date_dirs, image_types)
     write_image_files_to_dest(source, dest, date_dirs, image_types)
@@ -119,9 +120,9 @@ def write_image_files_to_dest(source, dest, date_dirs, images_types):
 
 def get_files(path: str) -> list:
     files = []
-    for r, d, f in os.walk(path):
-        for file in f:
-            files.append(os.path.join(r, file))
+    for root, dirs, files_ in os.walk(path):
+        for file in files_:
+            files.append(os.path.join(root, file))
     return files
 
 
